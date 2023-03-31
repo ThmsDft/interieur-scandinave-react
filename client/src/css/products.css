@@ -138,11 +138,25 @@ main {
   
   section.catalogue div.filter {
     position: sticky;
-    top: 80px;
+    top: 68px;
     width: 150px;
-    height: 360px;
-    border: solid red;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
     transition: ease-in-out .3s;
+    margin-bottom: 20px;
+  }
+
+  section.catalogue div.filter a{
+    text-decoration: none;
+  }
+
+  section.catalogue div.filter a p{
+    width: fit-content;
+    color: var(--text-color);
+    background-color: var(--main-color);
+    padding: 5px 8px;
+    border-radius: 20px;
   }
   
   section.catalogue div.filter.up {
@@ -151,11 +165,16 @@ main {
   section.catalogue div.filter.down {
     top: 0px;
   }
+
+  section.catalogue p.noProduct {
+    width: 100%;
+    text-align: center;
+  }
   
   section.catalogue div.articles {
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 20px;
     padding-bottom: 50px;
   }
@@ -199,8 +218,14 @@ main {
   @media (max-width: 780px) {
       section.catalogue div.filter {
           width: 100%;
-          height: 70px;
+          height: fit-content;
+          flex-direction: row;
+          flex-wrap: wrap;
+          background-color: var(--bg-color);
+          padding: 10px 0;
         }
+
+        
   
         section.catalogue {
           width: 100%;
@@ -211,7 +236,7 @@ main {
         }
   
         section.catalogue div.articles {
-          grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+          grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
         }
   
         section.catalogue div.articles a div.card .img {

@@ -9,6 +9,8 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import "./style.css";
 import ScrollToTop from "./components/ScrollToTop";
+import Admin from "./pages/Admin";
+import { AuthorizedUser } from './middleware/auth'
 
 const Layout = () => {
   return (
@@ -44,13 +46,17 @@ const router = createBrowserRouter([
       },
       {
         path: "/contact",
-        element: <Contact />,
+        element: <AuthorizedUser><Contact /></AuthorizedUser>,
       },
     ],
   },
   {
     path: "*",
     element: <ErrorPage />,
+  },
+  {
+    path: "/admin",
+    element: <Admin />,
   },
 ]);
 
